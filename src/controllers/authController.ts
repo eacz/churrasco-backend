@@ -25,7 +25,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
 
     const payload: JWTPayload = { _id: user._id.toString() }
 
-    const token = jwt.sign(payload, process.env.SECRET_KEY || '', { expiresIn: 3600 })
+    const token = jwt.sign(payload, "2x_`Db](_<n6u%9)'8u~+C7n)a+YK_9C", { expiresIn: 3600 })
 
     user.password = undefined
     return res.json({ ok: true, user, token })

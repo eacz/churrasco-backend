@@ -8,7 +8,7 @@ import { IUser } from './models/User'
 dotenv.config()
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4000
 connectDB()
 // TODO: mover esto a un archivo de definicion .d.ts
 declare module 'jsonwebtoken' {
@@ -25,13 +25,14 @@ declare global {
 }
 
 // configure cors
-const whitelist = [process.env.FRONTEND_URL || '']
+//const whitelist = [process.env.FRONTEND_URL || '']
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(cors())
-} else {
-  app.use(cors({ origin: whitelist }))
-}
+//if (process.env.NODE_ENV === 'development') {
+//  app.use(cors())
+//} else {
+//  app.use(cors({ origin: whitelist }))
+//}
+app.use(cors())
 
 app.use(express.json())
 app.use('/api', mainRouter)
